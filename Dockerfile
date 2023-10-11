@@ -1,8 +1,11 @@
 FROM centos:latest
 LABEL maintainer="phajumanoj@gmail.com"
 
-# Update repositories
-RUN yum update -y
+# Use a specific mirror for 'appstream'
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-AppStream.repo && \
+    sed -i 's/#baseurl/baseurl/g' /etc/yum.repos.d/CentOS-AppStream.repo && \
+    sed -i 's/mirror.centos.org/mirrorlist.centos.org/g' /etc/yum.repos.d/CentOS-AppStream.repo
+
 
 # Install required packages
 RUN yum install -y httpd zip unzip
