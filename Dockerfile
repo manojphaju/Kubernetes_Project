@@ -1,6 +1,9 @@
 FROM centos:latest
 LABEL maintainer="phajumanoj@gmail.com"
 
+# Update repositories
+RUN yum update -y
+
 # Install required packages
 RUN yum install -y httpd zip unzip
 
