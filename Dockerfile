@@ -1,19 +1,9 @@
-FROM centos:latest
-LABEL maintainer="phajumanoj@gmail.com"
+FROM nginx:latest
 
-# Update package list and install required packages
-RUN yum update -y && \
-    yum install -y --disablerepo=appstream --disablerepo=baseos httpd zip unzip
+LABEL maintainer="Bard"
 
-# Download and extract the zip file
-ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html/
-WORKDIR /var/www/html/
-RUN unzip photogenic.zip && \
-    cp -rvf photogenic/* . && \
-    rm -rf photogenic photogenic.zip
+COPY . /usr/share/nginx/html/
 
-# Set Apache to serve on port 80
 EXPOSE 80
 
-# Start Apache in the foreground
-CMD ["/usr/sbin/httpd", "-DFOREGROUND"]
+CMD ["nginx", "-g", "daemon off;"]
