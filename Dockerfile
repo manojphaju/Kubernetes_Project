@@ -4,7 +4,7 @@ LABEL maintainer="phajumanoj@gmail.com"
 
 # Install required packages
 # RUN yum install -y httpd zip unzip
-RUN yum install -y --setopt=appstream.module_hotfixes=1 --baseurl=http://mirror.centos.org/centos/8/AppStream/x86_64/os/ httpd zip unzip
+RUN yum install -y --disablerepo=appstream httpd zip unzip
 
 
 # Download and extract the zip file
