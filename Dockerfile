@@ -4,8 +4,8 @@ LABEL maintainer="phajumanoj@gmail.com"
 
 # Install required packages
 # RUN yum install -y httpd zip unzip
-RUN yum install -y --disablerepo=appstream --disablerepo=baseos httpd zip unzip
-
+RUN yum install -y --disablerepo=appstream --disablerepo=baseos
+RUN yum install -y httpd zip unzip
 
 
 # Download and extract the zip file
