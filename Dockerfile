@@ -1,11 +1,14 @@
 FROM centos:latest
 LABEL maintainer="phajumanoj@gmail.com"
 
-# Update package list
-RUN yum update -y
+# # Update package list
+# RUN yum update -y
 
-# Install required packages
-RUN yum install -y --disablerepo=appstream --disablerepo=baseos httpd zip unzip
+# # Install required packages
+# RUN yum install -y --disablerepo=appstream --disablerepo=baseos httpd zip unzip
+
+RUN dnf install -y --disablerepo=appstream httpd zip unzip
+
 
 
 # Download and extract the zip file
