@@ -4,7 +4,7 @@ LABEL maintainer="phajumanoj@gmail.com"
 
 # Install required packages
 # RUN yum install -y httpd zip unzip
-RUN yum install -y --disablerepo=appstream --baseurl=http://mirror.centos.org/centos/8/BaseOS/x86_64/os/ httpd zip unzip
+RUN yum install -y --disablerepo=appstream --disablerepo=baseos httpd zip unzip
 
 
 
