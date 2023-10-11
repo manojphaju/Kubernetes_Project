@@ -1,6 +1,6 @@
 FROM httpd:latest
 
-LABEL maintainer="Bard"
+LABEL maintainer="phajumanoj@gmail.com"
 
 COPY . /var/www/html/
 
